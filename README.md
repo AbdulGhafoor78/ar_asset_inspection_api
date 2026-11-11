@@ -136,7 +136,13 @@ Database schema and migration history are maintained in the `prisma/` directory.
 
 ## Related Project
 
-**Frontend:** Enterprise AR Asset Inspection & Maintenance Platform — Flutter application.
+
+## Related Repository
+
+**Flutter Frontend:** [ar_asset_inspection](https://github.com/AbdulGhafoor78/ar_asset_inspection)
+
+The Flutter application provides the frontend interface for the AR Asset Inspection and Maintenance Platform.
+
 
 ## Developer
 
