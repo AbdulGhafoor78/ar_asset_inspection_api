@@ -1,0 +1,29 @@
+BEGIN TRY
+
+BEGIN TRAN;
+
+-- CreateTable
+CREATE TABLE [dbo].[Asset] (
+    [id] INT NOT NULL IDENTITY(1,1),
+    [name] NVARCHAR(100) NOT NULL,
+    [assetCode] NVARCHAR(50) NOT NULL,
+    [location] NVARCHAR(150) NOT NULL,
+    [status] NVARCHAR(50) NOT NULL,
+    [createdAt] DATETIME2 NOT NULL CONSTRAINT [Asset_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
+    [updatedAt] DATETIME2 NOT NULL,
+    CONSTRAINT [Asset_pkey] PRIMARY KEY CLUSTERED ([id]),
+    CONSTRAINT [Asset_assetCode_key] UNIQUE NONCLUSTERED ([assetCode])
+);
+
+COMMIT TRAN;
+
+END TRY
+BEGIN CATCH
+
+IF @@TRANCOUNT > 0
+BEGIN
+    ROLLBACK TRAN;
+END;
+THROW
+
+END CATCH
